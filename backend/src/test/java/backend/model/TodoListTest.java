@@ -1,6 +1,7 @@
 package backend.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
@@ -21,7 +22,7 @@ public class TodoListTest {
     TodoList t = new TodoList();
 
     assertNull(t.getId());
-    assertNull(t.getEntries());
+    assertNotNull(t.getEntries());
     assertNull(t.getName());
   }
 
