@@ -21,7 +21,7 @@ public class TodoListTest {
     TodoList t = new TodoList();
 
     assertNull(t.getId());
-    assertNull(t.getEntries());
+    assertNotNull(t.getEntries());
     assertNull(t.getName());
   }
 
