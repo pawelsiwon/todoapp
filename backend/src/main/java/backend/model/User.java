@@ -1,9 +1,11 @@
 package backend.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,11 +36,13 @@ public class User implements UserDetails {
   private String email;
   private String password;
 
+  @Builder.Default
   @OneToMany
-  private List<TodoList> todoLists;
+  private List<TodoList> todoLists = new ArrayList<>();
 
-  @OneToMany
-  private List<Role> roles;
+  @Builder.Default
+  @OneToMany(cascade = CascadeType.PERSIST)
+  private List<Role> roles = new ArrayList<>();
 
   private boolean locked;
   private boolean expired;

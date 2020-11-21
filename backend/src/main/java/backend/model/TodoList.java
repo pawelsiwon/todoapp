@@ -1,5 +1,6 @@
 package backend.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -27,8 +28,9 @@ public class TodoList {
 
   private String name;
   
-  @OneToMany(cascade = CascadeType.PERSIST)
-  private List<TodoEntry> entries;
+  @Builder.Default
+  @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+  private List<TodoEntry> entries = new ArrayList<>();
 
   public void addEntry(TodoEntry entry) {
     entries.add(entry);
