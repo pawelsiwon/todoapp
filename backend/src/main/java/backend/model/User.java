@@ -37,7 +37,7 @@ public class User implements UserDetails {
   private String password;
 
   @Builder.Default
-  @OneToMany
+  @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
   private List<TodoList> todoLists = new ArrayList<>();
 
   @Builder.Default
